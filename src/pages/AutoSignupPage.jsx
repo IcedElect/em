@@ -34,11 +34,7 @@ const RegisterNewPage = () => {
     }, [email])
 
     const onNext = () => {
-        fetchPay('3t', true, (data) => {
-            if(data.result) {
-                setModal('prelend')
-            }
-        })
+        window.location = '/';
     }
 
     return (
