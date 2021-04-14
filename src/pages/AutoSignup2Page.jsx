@@ -35,7 +35,8 @@ const AutoSignup2Page = () => {
 
     const onPay = () => {
         fetchPay('3t', true, (data) => {
-            if(data.result) {
+            console.log('result', data.response.result);
+            if(data.response.result) {
                 setModal('prelend')
             }
         })
