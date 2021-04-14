@@ -1,9 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Modal from "../UI/Modal";
-import { Button } from "../UI";
-import { ModalContext } from "../store/modal/ModalContext";
-import { useContext } from "react";
+import {Button} from "../UI";
+import {ModalContext} from "../store/modal/ModalContext";
+import {useContext} from "react";
+import {OFERTA_URL} from "../config";
 
 export default function VerifyModal ({onClose}) {
     const { setModal } = useContext(ModalContext);
@@ -14,19 +13,22 @@ export default function VerifyModal ({onClose}) {
     }
 
     return (
-        <Modal id="verify" disableClose={true} onClose={onClose} title="VerifyModal">
+        <Modal id="verify" disableClose={true} onClose={onClose} title="Активация подписки">
             <div className="prelend">
                 <div className="prelend__content">
-                    <div className="prelend__content-title">Этот сайт подойдет тебе, если:</div>
+                    <div className="prelend__content-title">Уважаемые пользователи, во избежании накрутки нашего сервиса ботами мы внесли обязательную верификацию каждого нового пользователя</div>
                     <div className="prelend__content-list">
-                        <div className="prelend__content-list-item"><FontAwesomeIcon icon={faCheck}/>Ты лишился работы из-за коронавируса и пытаешься встать на ноги</div>
-                        <div className="prelend__content-list-item"><FontAwesomeIcon icon={faCheck}/>Ты бедный студент, который просто хочет жить нормально, не в чем себе не отказывая</div>
-                        <div className="prelend__content-list-item"><FontAwesomeIcon icon={faCheck}/>Ты учишься в школе и пытаешься заработать свои первые деньги в интернете</div>
-                        <div className="prelend__content-list-item"><FontAwesomeIcon icon={faCheck}/>У тебя есть свободное время, которое ты можешь и хочешь проводить с пользой</div>
+                        Данная мера позволяет избежать создания тысячи профилей одним человеком. Благодаря этому easywork остается <b>безопасным</b> и <b>надежным</b> сервисом выполнения легких заданий.
                     </div>
-                    <Button onClick={onClose} color={"main"} style={text}>Продолжить</Button>
-                    {/* <a href="/" style={text} type="button" className="button button--main">Продолжить</a> */}
+                    <div className="prelend__button">
+                        <div className="prelend__content-row">
+                            <div className="prelend__content-row__price-old">Тариф <span>1990₽</span></div>
+                            <div className="prelend__content-row__price-new"><strong>1₽*</strong><small>/нед</small></div>
+                        </div>
+                        <Button type="button" color="main" onClick={onClose}>Активировать</Button>
+                    </div>
                 </div>
+                <div className={'prelend-police'}><br/><br/>Нажимая на кнопку, вы соглашаетесь с условиями <a href={ OFERTA_URL } target="_blank">публичной оферты</a>, действующим и <a href={ OFERTA_URL } target="_blank">тарифами</a> сервиса, даете свое <a href={ OFERTA_URL } target="_blank">согласие на обработку персональных данных</a> и на получение рекламных материалов, осознаете возмездный характер оказываемых услуг.</div>
             </div>
         </Modal>
     )
