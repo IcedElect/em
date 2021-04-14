@@ -105,14 +105,33 @@ export const UserState = ({children}) => {
 
     const fetchPay = async (tariff_id, redirect, cb) => {
         dispatch({type: SET_PAY_PENDING})
-        var windowReference = window.open;
+
+        let ua = window.navigator.userAgent.toLowerCase();
+        let isSafari = (ua.indexOf("iphone") != -1 || ua.indexOf("ipad") != -1 || ua.indexOf("ipod") != -1);
+
+        var windowReference;
+        if (isSafari)
+            windowReference = window.open();
+        else
+            windowReference = window.open;
+
         let response = await api.post('/user/subscribe.php?tariff_id=' + tariff_id)
         .then(function(response) {
             const {status, data} = response
 
             if (!data.response.result && redirect) {
-                let a = windowReference()
-                a.location = data.response.url
+                if (isSafari) {
+                    windowReference.location = data.response.url;
+                }
+                else {
+                    let a = windowReference();
+                    a.location = data.response.url;
+                }
+            }
+            else {
+                if (isSafari) {
+                    windowReference.close();
+                }
             }
 
             cb && cb(data)
