@@ -24,7 +24,8 @@ const AutoSignup2Page = () => {
         // if(clickID)
         //     localStorage.setItem('cid', clickID)
 
-        fetchRegister()
+        //fetchRegister()
+        setModal('greeting');
     }, [])
 
     useEffect(() => {
@@ -37,7 +38,7 @@ const AutoSignup2Page = () => {
         fetchPay('3t', true, (data) => {
             console.log('result', data.response.result);
             if(data.response.result) {
-                setModal('prelend')
+                 window.location = '/';
             }
         })
     }
@@ -50,7 +51,6 @@ const AutoSignup2Page = () => {
             </div>
             <Greeting onClose={() => setModal('verify')} />
             <VerifyModal onClose={() => onPay()} />
-            <PrelendModal />
         </div>
     )
 }
