@@ -24,8 +24,8 @@ const AutoSignup2Page = () => {
         // if(clickID)
         //     localStorage.setItem('cid', clickID)
 
-        //fetchRegister()
-        setModal('greeting');
+        fetchRegister()
+        // setModal('greeting');
     }, [])
 
     useEffect(() => {
