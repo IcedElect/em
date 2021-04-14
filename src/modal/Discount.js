@@ -50,7 +50,7 @@ export default function DiscountModal () {
                     <Timer dl={popup.timer_end * 1000}/>
                     {/*<Button type="button" color="main" loading={loading} onClick={() => handlePay()}>Продолжить</Button>*/}
                 </div>
-                <div className={'prelend-police'}>Нажимая на кнопку, вы соглашаетесь с условиями <a href={ OFERTA_URL }>публичной оферты</a>, действующим и <a href={ OFERTA_URL }>тарифами</a> сервиса, даете свое <a href={ OFERTA_URL }>согласие на обработку персональных данных</a> и на получение рекламных материалов, осознаете возмездный характер оказываемых услуг.</div>
+                <div className={'prelend-police'}>Нажимая на кнопку, вы соглашаетесь с условиями <a href={ OFERTA_URL } target="_blank">публичной оферты</a>, действующим и <a href={ OFERTA_URL } target="_blank">тарифами</a> сервиса, даете свое <a href={ OFERTA_URL } target="_blank">согласие на обработку персональных данных</a> и на получение рекламных материалов, осознаете возмездный характер оказываемых услуг.</div>
             </div>
         </Modal>
     )

@@ -14,8 +14,8 @@ const Footer = () => {
                         <div className="footer__contact">
                             <div className="footer__contact-title">Контакты</div>
                             <div className="footer__contact-body">
-                                <a href={ 'mailto:' + HELP_EMAIL }>{ HELP_EMAIL }</a>
-                                <a href={ OFERTA_URL }>{ COMPANY }</a>
+                                <a href={ 'mailto:' + HELP_EMAIL } target="_blank">{ HELP_EMAIL }</a>
+                                <a href={ OFERTA_URL } target="_blank">{ COMPANY }</a>
                             </div>
                         </div>
                     </div>

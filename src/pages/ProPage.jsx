@@ -31,7 +31,7 @@ const ProPage = () => {
                         ))}
                     </ul>
                     <Button className="pro__button w-100" size="large" color="main" target="_blank" loading={loading} onClick={() => handlePay()}>Активировать</Button>
-                <div className={'prelend-police'}>Нажимая на кнопку, вы соглашаетесь с условиями <a href={ OFERTA_URL }>публичной оферты</a>, действующим и <a href={ OFERTA_URL }>тарифами</a> сервиса, даете свое <a href={ OFERTA_URL }>согласие на обработку персональных данных</a> и на получение рекламных материалов, осознаете возмездный характер оказываемых услуг.</div>
+                <div className={'prelend-police'}>Нажимая на кнопку, вы соглашаетесь с условиями <a href={ OFERTA_URL } target="_blank">публичной оферты</a>, действующим и <a href={ OFERTA_URL } target="_blank">тарифами</a> сервиса, даете свое <a href={ OFERTA_URL } target="_blank">согласие на обработку персональных данных</a> и на получение рекламных материалов, осознаете возмездный характер оказываемых услуг.</div>
                 </div>
             </Section>
         </>
