@@ -7,7 +7,9 @@ import { AuthPage, TaskListPage, NotFoundPage, TaskInfoPage, HistoryPage, Regist
 import Loading from '../../components/Loading';
 import { AuthContainer, DefaultContainer } from '../Containers';
 import AutoSignupPage from "../../pages/AutoSignupPage";
+import AutoSignup2Page from '../../pages/AutoSignup2Page';
 import RegisterNewPage from '../../pages/AutoSignupPage';
+
 const Router = ({children}) => {
   
   return (
@@ -15,12 +17,18 @@ const Router = ({children}) => {
       <GuardProvider guards={[requireLogin]} loading={Loading} error={NotFoundPage}>
         {children(
           <Switch>
-              <GuardedRoute
-                  path="/signup"
-                  exact
-                  component={() => AuthContainer({children: AutoSignupPage()})}
-                  meta={{ auth: false }}
-              />
+            <GuardedRoute
+              path="/signup"
+              exact
+              component={() => AuthContainer({children: AutoSignupPage()})}
+              meta={{ auth: false }}
+            />
+            <GuardedRoute
+              path="/signup2"
+              exact
+              component={() => AuthContainer({children: AutoSignup2Page()})}
+              meta={{ auth: false }}
+            />
             <GuardedRoute
               path="/register"
               exact
