@@ -1,0 +1,34 @@
+.history {
+
+    &__container {
+        background-color: $color-white;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    &__sub {
+        display: flex;
+        flex-direction: column;
+
+        &-subtitle {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        &-table {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+
+            @media (max-width: $screen-md) {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+
+    &__tabs {
+        display: flex;
+        margin-bottom: 10px;
+    }
+}

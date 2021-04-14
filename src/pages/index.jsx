@@ -1,0 +1,7 @@
+export { default as AuthPage } from './AuthPage'
+export { default as RegisterPage } from './RegisterPage'
+export { default as ProPage } from './ProPage'
+export { default as HistoryPage } from './HistoryPage'
+export { default as TaskInfoPage } from './TaskInfoPage'
+export { default as TaskListPage } from './TaskListPage'
+export { default as NotFoundPage } from './NotFoundPage'

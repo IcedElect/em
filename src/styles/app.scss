@@ -1,0 +1,103 @@
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1237px
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import '~bootstrap-4-grid/scss/grid.scss';
+
+$color-white:       #fff;
+$color-black:       #000;
+$color-default:     #353c59;
+
+$color-main:            #7312af;
+$color-main--hover:     #bf61fc;
+$color-main--active:    #595f83;
+
+$color-primary:         #363d5a;
+$color-primary--hover:  #42486a;
+$color-primary--active: #353c59;
+
+$color-danger:         #ff0000;
+$color-success:        #29af29;
+
+$text-color:           #444;
+$text-color--muted:    #999;
+$color--disabled:      #dedede;
+
+$color-gold--minor:    #FFCC66;
+
+$font-size:                      12px;
+$font-size-button:               14px;
+$font-size-title:                24px;
+
+$screen-xs:                      375px;
+$screen-sm:                      640px;
+$screen-md:                      768px;
+$screen-lg:                      992px;
+$screen-xl:                      1200px;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.35;
+    color: $text-color;
+    background: #f5f5f5;
+    position: relative;
+}
+
+html, body, #root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+#root {
+
+  main {
+    flex: 1;
+  }
+}
+
+@import 'header';
+@import 'footer';
+@import 'ui';
+@import 'auth';
+@import 'section';
+@import 'history';
+
+@import 'tasks';
+@import 'task';
+
+@import 'timer';
+@import 'pro';
+@import 'modal';
+@import 'prelendModal';
+@import 'registerModal';
+@import 'tabbar';
+@import 'loader';
+@import 'background';

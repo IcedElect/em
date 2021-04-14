@@ -1,0 +1,73 @@
+.page-pro {
+    min-height: 100%;
+    background-image: url(../assets/images/photo_2021-02-20_18-52-18.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+
+    .overlay {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        position: absolute;
+        background: rgba(0, 0, 0, .3)
+    }
+
+    .section {
+        z-index: 2;
+        position: relative;
+    }
+}
+
+.pro {
+    text-align: center;
+
+    &__icon {
+        height: 50px;
+    }
+
+    &__title {
+        font-size: 28px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        color: $color-main;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 30px;
+        list-style: none;
+        text-align: left;
+
+        &-item {
+            line-height: 24px;
+            padding-left: 20px;
+            position: relative;
+
+            svg {
+                color: $color-main;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    &__button {
+        margin-bottom: 10px;
+    }
+
+    &__price {
+        margin: 20px 0px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        b {
+            font-size: 1.25em;
+            font-weight: bold;
+            margin: 0px 5px;
+        }
+    }
+}

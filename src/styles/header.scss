@@ -1,0 +1,101 @@
+.header {
+    height: 70px;
+    background: rgb(53,60,89);
+    background: -moz-linear-gradient(120deg, rgba(53,60,89,1) 0%, rgba(64,70,102,1) 25%, rgba(64,70,102,1) 50%, rgba(72,79,107,1) 50%, rgba(72,79,107,1) 75%, rgba(73,79,111,1) 100%);
+    background: -webkit-linear-gradient(120deg, rgba(53,60,89,1) 0%, rgba(64,70,102,1) 25%, rgba(64,70,102,1) 50%, rgba(72,79,107,1) 50%, rgba(72,79,107,1) 75%, rgba(73,79,111,1) 100%);
+    background: linear-gradient(120deg, rgba(53,60,89,1) 0%, rgba(64,70,102,1) 25%, rgba(64,70,102,1) 50%, rgba(72,79,107,1) 50%, rgba(72,79,107,1) 75%, rgba(73,79,111,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#353c59",endColorstr="#494f6f",GradientType=1);
+
+    background: #fff;
+
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 5px 18px 0px, rgba(0, 0, 0, 0.015) 0px 0px 0px 1px;
+
+    .container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        @media (max-width: $screen-sm) {
+            padding-top: 8px;
+        }
+    }
+
+    &__logo {
+        img {
+            display: block;
+            max-height: 46px;
+        }
+    }
+
+    @media (max-width: $screen-sm) {
+        .row {
+            flex-wrap: nowrap;
+        }
+
+        .col-md-1 {
+            padding-right: 0px;
+        }
+        
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+
+        &-link {
+            font-size: 16px;
+            font-weight: 500;
+            color: $color-primary;
+            line-height: 46px;
+            padding: 0px 15px;
+
+            &:hover {
+                &:after {
+
+                }
+            }
+
+            &.button {
+                width: auto;
+                line-height: 1;
+
+                svg {
+                    margin-right: 10px;
+                }
+            }
+
+            svg {
+                margin-right: 4px;
+            }
+        }
+        @media (max-width: $screen-md) {
+            display: none;
+        }
+    }
+    @media (max-width: $screen-sm) {
+        &-button {
+            padding: 0 !important;
+            background: transparent !important;
+            color: $color-main !important;
+        }
+    }
+    &__profile {
+        color: inherit;
+        font-size: 16px;
+        text-align: right;
+        align-items: center;
+        flex-direction: row-reverse;
+
+        &-avatar {
+            display: block;
+            max-height: 46px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 15px;
+        }
+
+        &-balance {
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+}

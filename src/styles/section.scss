@@ -1,0 +1,23 @@
+.section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    min-height: 100vh;
+
+    &__header {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+
+        &-title {
+            font-size: 26px;
+            font-weight: bold;
+        }
+    }
+
+    &__inner {
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.04) 0px 5px 18px 0px, rgba(0, 0, 0, 0.015) 0px 0px 0px 1px;
+    }
+}

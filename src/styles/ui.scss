@@ -1,0 +1,429 @@
+a {
+    cursor: pointer;
+    color: $color-main;
+    text-decoration: none;
+    transition: all .2s ease;
+
+    &:visited {
+        // color: currentColor;
+    }
+
+    &:hover {
+        color: $color-main--hover;
+    }
+
+    &.active {
+        color: $color-main--hover;
+    }
+
+    &.underline {
+        text-decoration: underline;
+    }
+}
+
+.button, a.button {
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 14px 32px 13px;
+    font-size: $font-size-button;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    transition: all .2s ease;
+    outline: none !important;
+
+    span {
+        flex: 1;
+        white-space: nowrap;
+    }
+
+    @media screen and (max-width: $screen-xl) {
+        &:not(.button--small):not(.button--large) {
+            padding: 16px 26px;
+        }
+    }
+    @media screen and (max-width: $screen-sm) {
+        &:not(.button--small):not(.button--large) {
+            padding: 16px 26px;
+        }
+        span {
+            font-size: 12px;
+        }
+    }
+
+    & + .button {
+        margin-left: 20px;
+    }
+
+    & + small {
+        color: #455F88;
+        display: block;
+        font-size: $font-size;
+        line-height: 22px;
+        margin-top: 10px;
+        text-align: center;
+        border-bottom: 1px solid #F1F1F1;
+        @media screen and (max-width:$screen-sm) {
+            font-size: 13px;
+            line-height: 1.34;
+        }
+        @media screen and (max-width:$screen-xs) {
+            font-size: 11px;
+            line-height: 1.34;
+        }
+    }
+
+    &--main {
+        opacity: .9;
+        color: $color-white !important;
+        background-color: $color-main;
+        background: rgb(2,0,36);
+        background: -moz-linear-gradient(40deg, $color-main 20%, $color-main--hover 100%);
+        background: -webkit-linear-gradient(40deg, $color-main 20%, $color-main--hover 100%);
+        background: linear-gradient(40deg, $color-main 20%, $color-main--hover 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$color-primary,endColorstr=$color-main,GradientType=1);
+
+        &:hover {
+            opacity: 1;
+            background-color: $color-main--hover;
+        }
+
+        &:active {
+            background-color: $color-main--hover;
+        }
+    }
+
+    &--primary {
+        background-color: $color-primary;
+
+        &:hover {
+            background-color: $color-primary--hover;
+        }
+
+        &:active {
+            background-color: $color-primary--hover;
+        }
+    }
+
+    &--transparent {
+        background-color: transparent;
+        color: $text-color !important;
+
+        &:hover {
+            background-color: transparent;
+            color: $color-main--hover !important;
+        }
+
+        &:active {
+            background-color: transparent;
+        }
+    }
+
+    &--outline {
+        &-main {
+            color: $color-main;
+            background-color: transparent;
+            border: 1px solid rgba($color-main, .25);
+
+            &:hover {
+                color: $color-main--hover;
+                border-color: $color-main--hover;
+            }
+            &.active {
+                background-color: $color-main;
+                color: $color-white;
+            }
+        }
+
+        &-primary {
+            color: $color-primary;
+            background-color: transparent;
+            border: 1px solid $color-primary;
+
+            &:hover {
+                color: #fff;
+                border-color: $color-primary--hover;
+                background-color: $color-primary--hover;
+            }
+        }
+    }
+
+    &--bordered {
+        background-color: transparent !important;
+        border: 1px solid #F1F1F1;
+
+        &:hover {
+            border-color: currentColor;
+        }
+    }
+
+    &--small {
+        width: auto;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        padding: 11px 32px;
+        font-size: $font-size-button * 0.75;
+        span {
+            font-weight: 700;
+        }
+        @media (max-width: $screen-xs) {
+            padding: 10px 9px;
+        }
+    }
+
+    &--large {
+        width: auto;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 86px 18px;
+        font-size: $font-size-button * 1.1;
+
+        span {
+            font-weight: 700;
+            text-align: center;
+        }
+        @media (max-width: $screen-xs) {
+            padding: 20px 12px;
+        }
+    }
+
+    &--icon {
+        padding: 0;
+
+        svg {
+            margin: 0px !important;
+            font-size: 20px !important;
+        }
+    }
+
+    &[disabled], &--disabled {
+        cursor: default;
+        background-color: $color--disabled;
+    }
+
+    i {
+        font-size: .9rem;
+        // margin-right: 12px;
+    }
+
+    &--icon-right {
+        svg {
+            margin-left: 12px;
+            margin-right: 0px;
+        }
+    }
+}
+
+.control {
+    position: relative;
+    margin-bottom: 12px;
+
+    label {
+        display: block;
+        text-align: left;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 135%;
+        margin-bottom: 4px;
+        color: $text-muted;
+    }
+
+    &__message {
+        font-size: 12px;
+        margin-top: 5px;
+        display: block;
+        text-align: left;
+    }
+
+    & + .control, & + .button {
+        margin-top: 3px;
+    }
+
+    select,
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"] {
+        width: 100%;
+        border: none;
+        display: block;
+        border: 1px solid #CBCBCB;
+        border-radius: 5px;
+        padding: 13px;
+        font-weight: bold;
+        font-size: $font-size;
+        text-decoration: none;
+        background-color: #F8F8F8;
+        color: #777;
+
+        &:active, &:focus {
+            outline: none;
+            color: #1A2536;
+        }
+    
+        &::placeholder {
+            color: $text-color--muted;
+        }
+
+        // @media screen and (max-width:$screen-sm) {
+        //     padding: 23px 15px 24px;
+        //     font-size: 12px;
+        // }
+
+        // @media screen and (max-width:$screen-xs) {
+        //     padding: 23px 15px 24px;
+        //     font-size: 12px;
+        // }
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        display: none;
+
+        & + label {
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-weight: normal;
+            margin-bottom: 0px;
+
+            &:before {
+                content: '';
+                width: 28px;
+                height: 28px;
+                margin-right: 8px;
+                border-radius: 50%;
+                position: relative;
+                display: inline-block;
+                background-color: transparent;
+                border: 1px solid #ffffff;
+                transition: all .35s ease;
+            }
+
+            &:hover {
+                &:before {
+                    border-color: $color-main;
+                }
+            }
+
+            &:empty {
+                &:before {
+                    margin-right: 0px;
+                }
+            }
+        }
+
+        // &:hover {
+        //     & + label {
+                
+        //     }
+        // }
+
+        &:checked {
+            & + label {
+                &:before {
+                    border-color: $color-main;
+                    background-color: $color-main;
+                    box-shadow: inset 0px 0px 0px 4.5px #10151f;
+                }
+            }
+        }
+    }
+
+    input[type="checkbox"] {
+        & + label {
+            cursor: pointer;
+            color: #455F88;
+            align-items: flex-start;
+
+            &:before {
+                width: 20px;
+                height: 20px;
+                min-width: 20px;
+                border: 1px solid #CBCBCB;
+                border-radius: 2px;
+            }
+        }
+
+        &:checked {
+            & + label {
+                &:before {
+                    color: #fff;
+                    content: "\f00c";
+                    box-shadow: none;
+                    font-size: 8px;
+                    text-align: center;
+                    line-height: 20px;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    &--error, &--success {
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"] {
+            padding-right: 78px;
+        }
+
+        &:after {
+            color: #fff;
+            top: 50%;
+            right: 13px;
+            display: block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            position: absolute;
+            transform: translateY(-50%);
+            font-family:  "Font Awesome 5 Pro";
+            font-family: 700;
+            font-size: 12px;
+        }
+    }
+
+    &--error {
+        input, select {
+            border-color: $color-danger !important;
+        }
+
+        &:after {
+            content: "\F00D";
+            background-color: $color-danger;
+        }
+
+        span {
+            color: $color-danger;
+        }
+    }
+
+    &--success {
+        input, select {
+            border-color: $color-success !important;
+        }
+
+        &:after {
+            content: "\F00C";
+            background-color: $color-success;
+        }
+
+        span {
+            color: $color-success;
+        }
+    }
+}

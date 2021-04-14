@@ -1,0 +1,129 @@
+.section#tasks {
+    .section__inner {
+        padding: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+}
+
+.tasks {
+    &__list {
+
+    }
+
+    &__filter {
+        display: flex;
+        margin-top: -15px;
+        margin-bottom: 15px;
+    }
+
+    &__item {
+        padding: 20px;
+        display: flex;
+        color: inherit;
+        background: #fff;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: rgba(0, 0, 0, 0.04) 0px 5px 18px 0px, rgba(0, 0, 0, 0.015) 0px 0px 0px 1px;
+    
+        &:hover {
+            background: #efefef;
+            box-shadow: rgba(0, 0, 0, 0.08) 0px 10px 36px 0px, rgba(0, 0, 0, 0.03) 0px 0px 0px 1px;
+            cursor: pointer;
+        }
+
+        &-thumb {
+            width: 50px;
+            top: 5px;
+            left: -5px;
+            position: relative;
+
+            &:before {
+                content: '';
+                display: block;
+                position: relative;
+                padding-bottom: 100%;;
+            }
+
+            img {
+                top: 0;
+                left: 0;
+                width: 100%;
+                position: absolute;
+            }
+            @media (max-width: $screen-md) {
+                img {
+                    top: 10px;
+                    left: -7px;
+                    width: 100%;
+                }
+            }
+        }
+
+        &-content {
+            flex: 1;
+            padding: 5px;
+        }
+
+        &-title {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+
+            svg {
+                fill: #000;
+                font-size: 0.72em;
+                margin-left: 8px;
+                margin-top: -3px;
+            }
+        }
+
+        &-description {
+            font-size: 16px;
+            color: $text-muted;
+        }
+
+        &-tags {
+            margin-top: 8px;
+            &-item {
+                color: #fff;
+                padding: 4px 9px;
+                font-size: 10px;
+                border-radius: 10px;
+                background-color: #f92525;
+                display: inline-block;
+            }
+        }
+    }
+
+    &__sale {
+        background: linear-gradient(40deg, $color-main--hover 20%, $color-main 100%);
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+
+        &-actions {
+            font-weight: bold;
+            // color: 
+            span {
+                color: $color-main!important;
+            }
+
+            > button {
+                background: $color-white;
+            }
+        }
+    }
+
+    @media (max-width: $screen-sm) {
+        &__filter {
+            overflow: scroll;
+        }
+    }
+}

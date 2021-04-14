@@ -1,0 +1,35 @@
+.footer {
+    background: $color-white;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 5px 18px 0px, rgba(0, 0, 0, 0.015) 0px 0px 0px 1px;
+
+    .container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .col-md-4 {
+        img {
+            max-height: 46px;
+        }
+    }
+    
+    &__contact {
+        &-title {
+            margin-bottom: 10px;
+            color: #B7B7B7;
+        }
+
+        &-body {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                color: #333;
+
+                &:hover {
+                    color: #333;
+                }
+            }
+        }
+    }
+}

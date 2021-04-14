@@ -1,0 +1,32 @@
+@media (max-width: 600px) {
+  .background {
+    height: 100vh;
+    &.pic1 {
+      background: url("../assets/images/loading_bg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &__top {
+      position: fixed;
+      top: 40px;
+      left: 20px;
+      right: 20px;
+      height: 100px;
+      background: url("../assets/images/easy_money.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &__bottom {
+      position: fixed;
+      bottom: 40px;
+      left: 20px;
+      right: 20px;
+      color: #fff;
+      text-align: center;
+    }
+  }
+}
