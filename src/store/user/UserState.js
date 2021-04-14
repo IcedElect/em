@@ -105,13 +105,14 @@ export const UserState = ({children}) => {
 
     const fetchPay = async (tariff_id, redirect, cb) => {
         dispatch({type: SET_PAY_PENDING})
-        var windowReference = window.open();
+        var windowReference = window.open;
         let response = await api.post('/user/subscribe.php?tariff_id=' + tariff_id)
         .then(function(response) {
             const {status, data} = response
 
             if (!data.response.result && redirect) {
-                windowReference.location = data.response.url
+                let a = windowReference()
+                a.location = data.response.url
             }
 
             cb && cb(data)
