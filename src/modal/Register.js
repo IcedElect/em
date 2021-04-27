@@ -11,7 +11,7 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from "react-router-dom";
 
-export default function Register (props) {
+export default function Register ({onClick, onClose, to}) {
 
     const {handleSubmit, register, errors}  = useForm();
     const { setModal, hideModal, show } = useContext(ModalContext);
@@ -28,7 +28,7 @@ export default function Register (props) {
     // }, [isAuthorized])
 
     return (
-        <Modal id="register" title="Регистрация">
+        <Modal id="register" title="Регистрация" disableClose={true} onClose={onClose}>
             <div className="register">
                 <p style={{textAlign: "center"}}>Сохраните Ваш логин и пароль</p>
                 <div className="register__inner">
@@ -40,7 +40,7 @@ export default function Register (props) {
                     {/* <ReactTooltip effect="float" place="top" event="mouseup" /> */}
                 </div>
                 <small>*Нажмите на кнопку скопировать в буфер обмена и сохраните данные для входа себе в блокнот, это нужно, чтобы вы не потеряли доступ к своему личному кабинету </small>
-                <a href="/" className="button button-main" style={{width: 'auto'}}><span>Продолжить</span></a>
+                <Button onClick={onClick} to={to} color={"main"} style={{width: 'auto'}}><span>Продолжить</span></Button>
             </div>
         </Modal>
     );

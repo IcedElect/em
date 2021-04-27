@@ -1,0 +1,60 @@
+#modal-instagram_browser {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+
+    & .modal__dialog {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0;
+        margin: 0;
+        transform: none;
+        border-radius: 0;
+
+        &-header {
+            display: none;
+        }
+
+        &-body {
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        & .instagram__modal {
+            &-arrow {
+                position: fixed;
+                right: 10px;
+                width: 100%;
+                max-width: 150px;
+
+                & > img {
+                    width: 100%;
+                }
+            }
+
+            &-content {
+                position: fixed;
+                text-align: center;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 0 20px;
+                height: 250px;
+                margin: auto;
+                font-size: 19px;
+            }
+        }
+    }
+}

@@ -38,7 +38,25 @@ const Layout = () => {
     //     }
     // },[])
 
-    TagManager.initialize(tagManagerArgs);
+    if(process.env.NODE_ENV != "development")
+        TagManager.initialize(tagManagerArgs);
+
+    const pkg = findGetParameter('pkg')
+    if(pkg)
+        localStorage.setItem('pkg', pkg)
+
+    const aaid = findGetParameter('aaid')
+    if(aaid)
+        localStorage.setItem('aaid', aaid)
+
+    const appmetrica_device_id = findGetParameter('appmetrica_device_id')
+    if(appmetrica_device_id)
+        localStorage.setItem('appmetrica_device_id', appmetrica_device_id)
+
+    const appsflyer_id = findGetParameter('appsflyer_id')
+    if(appsflyer_id)
+        localStorage.setItem('appsflyer_id', appsflyer_id)
+
     const ref = findGetParameter('ref')
     if(ref)
         localStorage.setItem('ref', ref)
@@ -47,9 +65,17 @@ const Layout = () => {
     if(campaignName)
         localStorage.setItem('cn', campaignName)
 
+    const utm_adset = findGetParameter('utm_adset')
+    if(utm_adset)
+        localStorage.setItem('utm_adset', utm_adset)
+
     const clickID = findGetParameter('cid')
     if(clickID)
         localStorage.setItem('cid', clickID)
+
+    const GProCID = findGetParameter('gpro_cid')
+    if(GProCID)
+        localStorage.setItem('gpro_cid', GProCID)
 
     return (
         <UserState>

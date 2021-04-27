@@ -177,6 +177,23 @@ export const UserState = ({children}) => {
 
     const fetchRegister = async (redirect) => {
             dispatch({type: USER_FETCH_REGISTER})
+
+            let pkg = '';
+            if (localStorage.getItem('pkg'))
+                pkg = '&pkg=' + encodeURI(localStorage.getItem('pkg'));
+
+            let aaid = '';
+            if (localStorage.getItem('aaid'))
+                aaid = '&aaid=' + encodeURI(localStorage.getItem('aaid'));
+    
+            let appmetrica_device_id = '';
+            if (localStorage.getItem('appmetrica_device_id'))
+                appmetrica_device_id = '&appmetrica_device_id=' + encodeURI(localStorage.getItem('appmetrica_device_id'));
+    
+            let appsflyer_id = '';
+            if (localStorage.getItem('appsflyer_id'))
+                appsflyer_id = '&appsflyer_id=' + encodeURI(localStorage.getItem('appsflyer_id'));
+    
             let campaignName = '';
             if (localStorage.getItem('cn'))
                 campaignName = '&cn=' + encodeURI(localStorage.getItem('cn'));
@@ -184,8 +201,16 @@ export const UserState = ({children}) => {
             let clickID = '';
             if (localStorage.getItem('cid'))
                 clickID = '&cid=' + encodeURI(localStorage.getItem('cid'));
+
+            let GProCID = '';
+            if (localStorage.getItem('gpro_cid'))
+                GProCID = '&gpro_cid=' + encodeURI(localStorage.getItem('gpro_cid'));
+
+            let utm_adset = '';
+            if (localStorage.getItem('utm_adset'))
+                utm_adset = '&utm_adset=' + encodeURI(localStorage.getItem('utm_adset'));
     
-            let response = api.post('/auth/signup.php?ref=' + localStorage.getItem('ref') + campaignName + clickID)
+            let response = api.post('/auth/signup.php?ref=' + localStorage.getItem('ref') + campaignName + GProCID + clickID + utm_adset + aaid + pkg + appsflyer_id + appmetrica_device_id)
             .then((response) => {
                 localStorage.setItem('token', response?.data?.response?.token);
                 dispatch({type: USER_REGISTER_SUCCESS, data: response?.data?.response});
@@ -206,15 +231,39 @@ export const UserState = ({children}) => {
         bodyFormData.append('email', email);
         bodyFormData.append('password', password);
 
+        let pkg = '';
+        if (localStorage.getItem('pkg'))
+            pkg = '&pkg=' + encodeURI(localStorage.getItem('pkg'));
+
+        let aaid = '';
+        if (localStorage.getItem('aaid'))
+            aaid = '&aaid=' + encodeURI(localStorage.getItem('aaid'));
+
+        let appmetrica_device_id = '';
+        if (localStorage.getItem('appmetrica_device_id'))
+            appmetrica_device_id = '&appmetrica_device_id=' + encodeURI(localStorage.getItem('appmetrica_device_id'));
+
+        let appsflyer_id = '';
+        if (localStorage.getItem('appsflyer_id'))
+            appsflyer_id = '&appsflyer_id=' + encodeURI(localStorage.getItem('appsflyer_id'));
+
         let campaignName = '';
         if (localStorage.getItem('cn'))
             campaignName = '&cn=' + encodeURI(localStorage.getItem('cn'));
+
+        let GProCID = '';
+        if (localStorage.getItem('gpro_cid'))
+            GProCID = '&gpro_cid=' + encodeURI(localStorage.getItem('gpro_cid'));
 
         let clickID = '';
         if (localStorage.getItem('cid'))
             clickID = '&cid=' + encodeURI(localStorage.getItem('cid'));
 
-        let response = api.post('/auth/signupByEmail.php?ref='+ localStorage.getItem('ref') + campaignName + clickID, bodyFormData)
+        let utm_adset = '';
+        if (localStorage.getItem('utm_adset'))
+            utm_adset = '&utm_adset=' + encodeURI(localStorage.getItem('utm_adset'));
+
+        let response = api.post('/auth/signupByEmail.php?ref='+ localStorage.getItem('ref') + campaignName + GProCID + clickID + utm_adset + aaid + pkg + appsflyer_id + appmetrica_device_id, bodyFormData)
         .then((response) => {
             localStorage.setItem('token', response?.data?.response?.token);
             dispatch({type: USER_REGISTER_SUCCESS_BY_EMAIL, data: response?.data?.response});

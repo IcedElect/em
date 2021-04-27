@@ -6,26 +6,17 @@ import Modal from "../UI/Modal";
 import Greeting from "../modal/Greeting";
 import VerifyModal from "../modal/VerifyModal";
 import PrelendModal from "../modal/Prelend";
+import InstagramBrowser from "../modal/InstagramBrowser";
 
 const AutoSignup2Page = () => {
     const { fetchRegister, email, fetchPay } = useContext(UserContext);
     const { setModal, hideModal, show } = useContext(ModalContext);
 
     useEffect(() => {
-        // const ref = findGetParameter('ref')
-        // if(ref)
-        //     localStorage.setItem('ref', ref)
-        //
-        // const campaignName = findGetParameter('cn')
-        // if(campaignName)
-        //     localStorage.setItem('cn', campaignName)
-        //
-        // const clickID = findGetParameter('cid')
-        // if(clickID)
-        //     localStorage.setItem('cid', clickID)
-
-        fetchRegister()
-        // setModal('greeting');
+        if (window.navigator.userAgent.toLowerCase().includes("instagram"))
+            setModal('instagram_browser');
+        else
+            fetchRegister()
     }, [])
 
     useEffect(() => {
@@ -51,6 +42,7 @@ const AutoSignup2Page = () => {
             </div>
             <Greeting onClose={() => setModal('verify')} />
             <VerifyModal onClose={() => onPay()} />
+            <InstagramBrowser />
         </div>
     )
 }

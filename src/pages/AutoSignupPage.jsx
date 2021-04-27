@@ -4,34 +4,33 @@ import Loading from "../components/Loading";
 import { ModalContext } from "../store/modal/ModalContext";
 import Modal from "../UI/Modal";
 import Greeting from "../modal/Greeting";
+import InstagramBrowser from "../modal/InstagramBrowser";
 import PaymentsModal from "../modal/Payments";
 import PrelendModal from "../modal/Prelend";
+import Register from "../modal/Register";
 
 const RegisterNewPage = () => {
     const { fetchRegister, email, fetchPay } = useContext(UserContext);
     const { setModal, hideModal, show } = useContext(ModalContext);
 
     useEffect(() => {
-        // const ref = findGetParameter('ref')
-        // if(ref)
-        //     localStorage.setItem('ref', ref)
-        //
-        // const campaignName = findGetParameter('cn')
-        // if(campaignName)
-        //     localStorage.setItem('cn', campaignName)
-        //
-        // const clickID = findGetParameter('cid')
-        // if(clickID)
-        //     localStorage.setItem('cid', clickID)
-
-        fetchRegister()
+        if (window.navigator.userAgent.toLowerCase().includes("instagram")) {
+            setModal('instagram_browser');
+        } else {
+            fetchRegister();
+        }
     }, [])
 
     useEffect(() => {
+        // setModal('register')
         if(email) {
-            setModal('greeting');
+            setModal('register');
         }
     }, [email])
+
+    const showGreeting = () => {
+        setModal('greeting');
+    }
 
     const onNext = () => {
         window.location = '/';
@@ -44,7 +43,8 @@ const RegisterNewPage = () => {
                 Загрузка...
             </div>
             <Greeting onClose={() => onNext()} />
-            <PrelendModal />
+            <Register onClick={() => showGreeting()} onClose={() => showGreeting()} />
+            <InstagramBrowser />
         </div>
     )
 }

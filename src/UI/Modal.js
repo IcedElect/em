@@ -41,8 +41,8 @@ const Modal = (props, ref) => {
 
         if (['greeting', 'register'].indexOf(id) != -1)
             window.location = '/';
-        if(['is'].indexOf(id) != -1)
-            window.location = 'easyworkapp.ru';
+        // if(['is'].indexOf(id) != -1)
+        //     window.location = 'easyworkapp.ru';
         if(props.onHide)
             props.onHide()
     }

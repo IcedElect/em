@@ -25,21 +25,10 @@ const TaskListPage = () => {
         fetchTasks(tag, page)
     }, [tag, page])
 
-    // useEffect((interval) => {
-    //     if(!interval) {
-    //         interval = setInterval(() => {
-    //             if(isTimedOut('showPrelend', 3) && popup != null) {
-    //                 setModal("prelend")
-    //             } if(popup == null) {
-    //                 hideModal("prelend")
-    //             }
-    //         }, 5000)
-    //     }
-    // }, [interval])
-
     useEffect(() => {
-        setModal('discount')
-    }, [])
+        if (popup?.show)
+            setModal('discount')
+    }, [popup])
 
     const handlePay = () => {
         if(popup?.type == 1) {

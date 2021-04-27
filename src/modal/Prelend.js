@@ -9,11 +9,14 @@ import { UserContext } from "../store/user/UserContext";
 import { ModalContext } from "../store/modal/ModalContext";
 import { Redirect } from "react-router";
 import {OFERTA_URL} from "../config";
+import Control from "../UI/Control";
 
 export default function PrelendModal () {
     const [redirect, setRedirect] = useState(false);
     const { setModal, hideModal } = useContext(ModalContext);
     const {popup, fetchPay, pay, fetchSub, private_id, success, initUser, loading} = useContext(UserContext);
+
+    const [ a, setA ] = useState(false);
 
     const handlePay = () => {
 
@@ -43,15 +46,13 @@ export default function PrelendModal () {
                             <div className="prelend__content-list-item"><FontAwesomeIcon icon={faCheck}/>Автоматические выплаты</div>
                             <div className="prelend__content-list-item"><FontAwesomeIcon icon={faCheck}/>Круглосуточная поддержка</div>
                     </div>
-                    <div className="prelend__button">
-                        <div className="prelend__content-row">
-                            <div className="prelend__content-row__price-old">Тариф <span>1990₽</span></div>
-                            <div className="prelend__content-row__price-new"><strong>1₽*</strong><small>/нед</small></div>
-                        </div>
-                        <Button type="button" color="main" loading={loading} onClick={() => handlePay()}>Продолжить</Button>
+                    <div className="prelend__content-row">
+                        <div className="prelend__content-row__price-old">Тариф <span>1990₽</span></div>
+                        <div className="prelend__content-row__price-new"><strong>1₽*</strong><small>/нед</small></div>
                     </div>
-                    <Timer dl={popup?.timer_end * 1000}/>
-                    {/*<Button type="button" color="main" loading={loading} onClick={() => handlePay()}>Продолжить</Button>*/}
+                    <Timer dl={popup.timer_end * 1000}/>
+                    { popup.a && <Control type={"checkbox"} onChange={(e) => setA(e.target.checked)} label={"Согласен на автоматические списания"} size={"small"} />}
+                    <Button type="button" color="main" disabled={ !(!popup.a || a) } loading={loading} onClick={() => handlePay()}>Продолжить</Button>
                 </div>
                 <div className={'prelend-police'}>Нажимая на кнопку, вы соглашаетесь с условиями <a href={ OFERTA_URL } target="_blank">публичной оферты</a>, действующим и <a href={ OFERTA_URL } target="_blank">тарифами</a> сервиса, даете свое <a href={ OFERTA_URL } target="_blank">согласие на обработку персональных данных</a> и на получение рекламных материалов, осознаете возмездный характер оказываемых услуг.</div>
             </div>

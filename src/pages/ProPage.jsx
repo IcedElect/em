@@ -6,6 +6,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from "../store/user/UserContext";
 import { useContext, useState } from "react";
 import {OFERTA_URL} from "../config";
+import Control from "../UI/Control";
 
 const ProPage = () => {
 
@@ -14,6 +15,7 @@ const ProPage = () => {
     const handlePay = () => {
         fetchSub(private_id.tariff_id, true)
     }
+    const [ a, setA ] = useState(false);
 
     const info = private_id?.lines;
 
@@ -30,8 +32,9 @@ const ProPage = () => {
                             <li className="pro__list-item"><FontAwesomeIcon icon={faCheck}/>{item}</li>
                         ))}
                     </ul>
-                    <Button className="pro__button w-100" size="large" color="main" target="_blank" loading={loading} onClick={() => handlePay()}>Активировать</Button>
-                <div className={'prelend-police'}>Нажимая на кнопку, вы соглашаетесь с условиями <a href={ OFERTA_URL } target="_blank">публичной оферты</a>, действующим и <a href={ OFERTA_URL } target="_blank">тарифами</a> сервиса, даете свое <a href={ OFERTA_URL } target="_blank">согласие на обработку персональных данных</a> и на получение рекламных материалов, осознаете возмездный характер оказываемых услуг.</div>
+                    { private_id?.a && <Control type={"checkbox"} onChange={(e) => setA(e.target.checked)} label={"Согласен на автоматические списания"} size={"small"} />}
+                    <Button className="pro__button w-100" disabled={ !(!private_id?.a || a) } size="large" color="main" target="_blank" loading={loading} onClick={() => handlePay()}>Активировать</Button>
+                <div className={'prelend-police'}>Нажимая на кнопку, вы соглашаетесь с условиями <a href={ OFERTA_URL }>публичной оферты</a>, действующим и <a href={ OFERTA_URL }>тарифами</a> сервиса, даете свое <a href={ OFERTA_URL }>согласие на обработку персональных данных</a> и на получение рекламных материалов, осознаете возмездный характер оказываемых услуг.</div>
                 </div>
             </Section>
         </>

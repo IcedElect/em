@@ -9,6 +9,7 @@ import { UserContext } from "../store/user/UserContext";
 import Register from "../modal/Register";
 import Greeting from "../modal/Greeting";
 import PrelendModal from "../modal/Prelend";
+import InstagramBrowser from "../modal/InstagramBrowser";
 
 const RegisterPage = () => {
 
@@ -18,6 +19,11 @@ const RegisterPage = () => {
     const {handleSubmit, register, errors}  = useForm();
 
     const { fetchRegister, email, id, ios, popup, private_id, tariff_id, fetchPay, fetchSub, fetchEmailRegister, loading, loader } = useContext(UserContext);
+
+    useEffect(() => {
+        if (window.navigator.userAgent.toLowerCase().includes("instagram"))
+            setModal('instagram_browser');
+    }, [])
 
     const handleClick = () => {
         if(navigator.userAgent.includes("Instagram")) {
@@ -62,9 +68,9 @@ const RegisterPage = () => {
                     id="login-email" 
                     name="email" 
                     label="E-mail" 
-                    // ref={register({
-                    //     required: 'Это поле обязательно'
-                    // })}
+                    ref={register({
+                        required: 'Это поле обязательно'
+                    })}
                     error={errors.email ? errors.email.message : null}
                 />
                 <Control
@@ -72,9 +78,9 @@ const RegisterPage = () => {
                     id="login-password" 
                     name="password" 
                     label="Пароль" 
-                    // ref={register({
-                    //     required: 'Это поле обязательно'
-                    // })}
+                    ref={register({
+                        required: 'Это поле обязательно'
+                    })}
                     error={errors.password ? errors.password.message : (error || null)}
                 />
                 <Button className="form__button" color="main" loading={loading}>Создать аккаунт</Button>
@@ -84,8 +90,9 @@ const RegisterPage = () => {
                 Регистрация в 1 клик
             </Button>
                 <small>Уже есть аккаунт? <b><Link to="/login">Войти</Link></b></small>
-            <Register/>
+            <Register to='/'/>
             <Greeting/>
+            <InstagramBrowser />
             {popup != null && <PrelendModal onClick={() => handlePay()}/>}
         </Section>
     )
